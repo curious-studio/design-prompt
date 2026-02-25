@@ -78,8 +78,10 @@
             color: #4e5e5c;
             margin-bottom: 0;
         }
-        h1 {
-            margin-top: 0;
+        h1.masthead {
+            margin-top: 1em;
+            margin-bottom: .25em;
+            font-size: 3em;
         }
 
         /* Toast notification style */
@@ -91,3 +93,57 @@
             margin-top: 10px;
             font-size: 14px;
         }
+
+/* Media Queries */
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 15px;
+        max-width: 100%;
+    }
+    .input-group label {
+        font-size: 1.2em;
+    }
+    textarea {
+        height: 100px;
+    }
+    button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+    #output {
+        padding: 20px;
+        font-size: 1em;
+    }
+    .btn-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    #copyBtn {
+        width: 100%;
+    }
+}
+
+/* Tablet devices (min-width: 769px) and (max-width: 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+    .input-group label {
+        font-size: 2em;
+    }
+    button {
+        font-size: 20px;
+    }
+}
+
+/* Desktop devices (min-width: 1025px) */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1000px;
+    }
+}
