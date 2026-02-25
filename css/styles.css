@@ -1,0 +1,93 @@
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #6aafa4;
+            color: #3a3a3a;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgb(164 236 225 / 70%);
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.1);
+        }
+        .input-group { margin-top: 5px; margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+		.input-group label {
+			font-size: 1.5em;
+			letter-spacing: .5px;
+		}
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        button {
+            background: rgb(247 149 124);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            width: 100%;
+            font-weight: bold;
+            letter-spacing: .5px;
+            transition: transform 0.1s;
+        }
+        button:hover { background: #ee947d; }
+        button:active { transform: scale(0.98); }
+
+        /* Secondary style for copy button */
+        #copyBtn {
+            background: #f7957c;
+            display: none; /* Hidden until a prompt is generated */
+			width: 40%;
+        }
+        #copyBtn:hover { background: #ee947d; }
+
+        #output {
+            margin-top: 20px;
+            padding: 30px;
+            border-left: navajowhite;
+            background: #f8fafc;
+            line-height: 1.6;
+            font-size: 1.25em;
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+            position: relative;
+        }
+        #output strong {
+            color: hsl(12 76% 64% / 1);
+        }
+        .input-group textarea {color: grey;}
+        h3 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #4e5e5c;
+            margin-bottom: 0;
+        }
+        h1 {
+            margin-top: 0;
+        }
+
+        /* Toast notification style */
+        #copyStatus {
+            display: none;
+            text-align: center;
+            color: #ffffff;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
