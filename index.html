@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brand Prompt Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #6aafa4;
+            color: #3a3a3a;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgb(164 236 225 / 70%);
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.1);
+        }
+        .input-group { margin-top: 5px; margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+		.input-group label {
+			font-size: 1.5em;
+			letter-spacing: .5px;
+		}
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        button {
+            background: rgb(247 149 124);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            width: 100%;
+            font-weight: bold;
+            letter-spacing: .5px;
+            transition: transform 0.1s;
+        }
+        button:hover { background: #ee947d; }
+        button:active { transform: scale(0.98); }
+
+        /* Secondary style for copy button */
+        #copyBtn {
+            background: #f7957c;
+            display: none; /* Hidden until a prompt is generated */
+			width: 40%;
+        }
+        #copyBtn:hover { background: #ee947d; }
+
+        #output {
+            margin-top: 20px;
+            padding: 30px;
+            border-left: navajowhite;
+            background: #f8fafc;
+            line-height: 1.6;
+            font-size: 1.25em;
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+            position: relative;
+        }
+        #output strong {
+            color: hsl(12 76% 64% / 1);
+        }
+        .input-group textarea {color: grey;}
+        h3 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #4e5e5c;
+            margin-bottom: 0;
+        }
+        h1 {
+            margin-top: 0;
+        }
+
+        /* Toast notification style */
+        #copyStatus {
+            display: none;
+            text-align: center;
+            color: #ffffff;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+	<img src="../Assets/graphic-design-SP26.png" width=100% style="border-radius: 10px;">
+    <h3 class="heading">ARTD 339 - Spring 2026</h3>
+    <h1>Brand Prompt Generator</h1>
+    
+    <div class="input-group">
+        <label>Business Types</label>
+        <textarea id="clients">small airline, coffee shop, dentist, school, noodle restaurant, food truck, fin-tech startup, handyman service, dog groomer, pizza shop, tree trimmer, home remodeler, crossfit gym, summer camp, bakery, grocery store, donut shop, recording studio, deli, pool hall, dance studio, lawncare service, garden center, taco shop, small hotel, hockey gear store, music store</textarea>
+    </div>
+
+    <div class="input-group">
+        <label>Locations</label>
+        <textarea id="locations">a small town, Denver, a large city, an east coast city, a college town, a national park, New England, the Mid-Atlantic, the Southeast, the Deep South, the Midwest, the Great Plains, the Southwest, the Rocky Mountains, the Pacific Northwest, a West Coast community, the Great Lakes Region, Appalachia, the Gulf Coast</textarea>
+    </div>
+
+    <div class="input-group">
+        <label>Demographics</label>
+        <textarea id="demographics">elementary kids, large families, urban residents, rural populations, suburban households, senior citizens living independently, retirees, first-time homebuyers, working professionals, small business owners, stay-at-home parents, single-parent families, dual-income households, recent immigrants, military veterans, Gen Z consumers, millennials, baby boomers, seasonal residents, middle-class families, renters, teenagers, young professionals, empty nesters, urban commuters, homeowners, college graduates, single adults, parents of young children</textarea>
+    </div>
+
+    <div class="input-group">
+        <label>Descriptors</label>
+        <textarea id="descriptors">adventurous, analytical, artisan, athletic, audacious, authentic, beautiful, bold, brave, bright, careful, caring, childlike, clean, clever, competent, confident, delicate, dignified, dynamic, electrifying, elegant, elevated, embellished, encouraging, energetic, fast, fearless, ferocious, focused, fresh, friendly, futuristic, gourmet, gracious, handcrafted, healthy, helpful, heritage, heroic, hospitable, imaginative, in motion, intelligent, inventive, joyful, kind, logical, luxurious, majestic, merry, mesmerizing, mysterious, mystical, natural, noble, nostalgic, nourishing, optimistic, organic, personal, pioneer, playful, posh, powerful, practical, pragmatic, precise, prestige, prudent, pure, quiet, quirky, radiant, refined, refreshing, relaxed, robust, rough, rugged, sacred, safe, secret, serene, simple, sincere, slow, solid, sophisticated, stable, status, sturdy, stylish, sweet, theoretical, thoughtful, thrilling, tranquil, trustworthy, unexpected, vigorous, warm, welcoming, wholesome, wild, wise, witty</textarea>
+    </div>
+
+    <div class="input-group">
+        <label>Colors</label>
+        <textarea id="colors">Crimson, Tangerine, Lemon Yellow, Chartreuse, Emerald Green, Teal, Turquoise, Sky Blue, Cobalt Blue, Indigo, Violet, Magenta, Coral, Peach, Maroon, Olive, Mustard, Chocolate Brown, Charcoal Gray, Ivory, Sun-Faded Terracotta, Deep Pine Green, Pale Champagne Beige, Stormcloud Gray, Ripe Pomegranate Red, Icy Glacier Blue, Toasted Almond Brown, Dusty Rose, Electric Cobalt, Burnished Copper, Soft Pistachio Green, Midnight Plum, Honeyed Amber, Arctic Mint, Smoky Quartz Taupe, Tropical Lagoon Teal, Saffron Gold, Blueberry Ink, Coral Reef Pink, Weathered Denim Blue</textarea>
+    </div>
+
+    <div class="btn-container">
+        <button id="generate">Generate Prompt</button>
+        <button id="copyBtn">Copy Prompt</button>
+    </div>
+
+    <div id="output">Click to generate a unique prompt.</div>
+    <div id="copyStatus">Copied to clipboard!</div>
+</div>
+
+<script>
+(function() {
+    const genBtn = document.getElementById('generate');
+    const copyBtn = document.getElementById('copyBtn');
+    const output = document.getElementById('output');
+    const copyStatus = document.getElementById('copyStatus');
+
+    // Helper to get random item from comma-separated or newline-separated text
+    function pickRandom(id) {
+        const text = document.getElementById(id).value;
+        const items = text.split(/[,\n]/)
+                          .map(s => s.trim())
+                          .filter(s => s.length > 0 && !s.includes('[source'));
+        return items[Math.floor(Math.random() * items.length)];
+    }
+
+    // Generate Prompt function
+    genBtn.addEventListener('click', function() {
+        try {
+            const biz = pickRandom('clients');
+            const loc = pickRandom('locations');
+            const demo = pickRandom('demographics');
+            const color = pickRandom('colors');
+            
+            const descInput = document.getElementById('descriptors').value;
+            const descPool = descInput.split(/[,\n]/).map(s => s.trim()).filter(s => s.length > 0);
+            const selectedDesc = [];
+            
+            while(selectedDesc.length < 3 && descPool.length > 3) {
+                const pick = descPool[Math.floor(Math.random() * descPool.length)];
+                if(!selectedDesc.includes(pick)) {
+                    selectedDesc.push(pick);
+                }
+            }
+
+            const prompt = "Design a brand for a <strong>" + biz + "</strong> in <strong>" + loc + "</strong> whose clients are <strong>" + demo + "</strong>. The brand should feel <strong>" + selectedDesc[0] + "</strong>, <strong>" + selectedDesc[1] + "</strong> and <strong>" + selectedDesc[2] + "</strong>, and should use <strong>" + color + "</strong> as one of its key colors.";
+            
+            output.innerHTML = prompt;
+            
+            // Show the copy button once a prompt exists
+            copyBtn.style.display = "block";
+            copyStatus.style.display = "none"; 
+        } catch (err) {
+            output.innerHTML = "Error generating prompt. Please check your list formatting.";
+            console.error(err);
+        }
+    });
+
+    // Standalone Copy function
+    copyBtn.addEventListener('click', function() {
+        const textToCopy = output.innerText; // .innerText strips the <strong> tags
+        
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // Show feedback
+            copyStatus.style.display = "block";
+            
+            // Hide feedback after 2 seconds
+            setTimeout(() => {
+                copyStatus.style.display = "none";
+            }, 2000);
+        }).catch(err => {
+            console.error('Could not copy text: ', err);
+        });
+    });
+
+})();
+</script>
+
+</body>
+</html>
