@@ -80,6 +80,9 @@
             text-align: center;
             position: relative;
         }
+		#output span {
+		    color: black;
+		}
         #output strong {
             color: hsl(12 76% 64% / 1);
         }
@@ -180,4 +183,8 @@ p {}
 
 div#output {
     font-size: 1.5em;
+}
+
+div#output {
+    color: lightgray;
 }

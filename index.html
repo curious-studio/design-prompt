@@ -57,7 +57,7 @@
         <button id="copyBtn">Copy Prompt</button>
     </div>
 
-    <div id="output">Click to generate your design prompt.</div>
+    <div id="output">What will you make today?</div>
     <div id="copyStatus">Copied to clipboard!</div>
 </div>
 
@@ -96,7 +96,7 @@
                 }
             }
 
-            const prompt = "Design a brand for a <strong>" + biz + "</strong> in <strong>" + loc + "</strong> whose clients are <strong>" + demo + "</strong>. The brand should feel <strong>" + selectedDesc[0] + "</strong>, <strong>" + selectedDesc[1] + "</strong> and <strong>" + selectedDesc[2] + "</strong>, and should use <strong>" + color + "</strong> as one of its key colors.";
+            const prompt = "<span>Design a brand for a <strong>" + biz + "</strong> in <strong>" + loc + "</strong> whose clients are <strong>" + demo + "</strong>. The brand should feel <strong>" + selectedDesc[0] + "</strong>, <strong>" + selectedDesc[1] + "</strong> and <strong>" + selectedDesc[2] + "</strong>, and should use <strong>" + color + "</strong> as one of its key colors.</span>";
             
             output.innerHTML = prompt;
             
