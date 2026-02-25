@@ -12,6 +12,18 @@
             border-radius: 24px;
             box-shadow: 0 50px 80px rgba(0, 0, 0, 0.1);
         }
+		footer.container {
+		    background-color: transparent;
+		    text-align: center;
+		    color: #dcdcdc;
+		    box-shadow: none;
+		    padding: 0 0 5em 0;
+		}
+		footer p{
+			text-transform:uppercase;
+			letter-spacing:2px;
+			font-size: .9em;
+		}
         .input-group { margin-top: 5px; margin-bottom: 20px; }
         label { display: block; font-weight: bold; margin-bottom: 5px; }
 		.input-group label {
@@ -71,16 +83,19 @@
         #output strong {
             color: hsl(12 76% 64% / 1);
         }
-        .input-group textarea {color: grey;}
+        .input-group textarea {
+			color: grey;
+			font-size: 1.5em;
+		}
         h3 {
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #4e5e5c;
             margin-bottom: 0;
         }
-        h1.masthead {
+        .masthead h1 {
             margin-top: 1em;
-            margin-bottom: .25em;
+            margin-bottom: 0;
             font-size: 3em;
         }
 
@@ -111,6 +126,10 @@
     textarea {
         height: 100px;
     }
+	.input-group textarea {
+ 
+	    font-size: 1.75em;
+	}
     button {
         font-size: 18px;
         padding: 12px 20px;
@@ -146,4 +165,12 @@
     .container {
         max-width: 1000px;
     }
+}
+
+p {}
+
+.masthead p {
+    font-size: 1.75em;
+    letter-spacing: 1px;
+    margin-top: .25em;
 }
