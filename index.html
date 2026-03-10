@@ -23,7 +23,17 @@
 	<img src="./images/graphic-design-SP26.png" width=100% style="border-radius: 10px;">
 <!--    <h3 class="heading">ARTD 339 - Spring 2026</h3> -->
     <div class="masthead">
-        <h1>Brand Prompt Generator</h1>
+        <div class="masthead-header">
+            <h1>Brand Prompt Generator</h1>
+            <div class="theme-toggle">
+                <label for="theme-switch" class="switch-label">
+                    <input id="theme-switch" type="checkbox" class="theme-switch">
+                    <span class="slider"></span>
+                    <span class="theme-label light-label">Light</span>
+                    <span class="theme-label dark-label">Dark</span>
+                </label>
+            </div>
+        </div>
         <p>Use the options provided for each category, or customize them to fit your project.</p>
     </div>
     
@@ -60,6 +70,32 @@
     <div id="output">What will you make today?</div>
     <div id="copyStatus">Copied to clipboard!</div>
 </div>
+
+<script>
+// Theme toggle functionality
+(function() {
+    const themeSwitch = document.getElementById('theme-switch');
+    const htmlElement = document.documentElement;
+
+    // Load theme preference from localStorage
+    const savedTheme = localStorage.getItem('theme-preference') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeSwitch.checked = true;
+    }
+
+    // Toggle theme on switch change
+    themeSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme-preference', 'dark');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme-preference', 'light');
+        }
+    });
+})();
+</script>
 
 <script>
 (function() {
