@@ -1,0 +1,60 @@
+{
+  "name": "Design Prompt",
+  "lastModified": "2026-03-14T22:05:25Z",
+  "thumbnailUrl": "https://s3-alpha.figma.com/thumbnails/6040f718-4522-4dd2-b5a7-d1b4dcc313ef?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC3LO4T7JF%2F20260315%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260315T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=ac3195a8f2c813f114a7788407ef45af1710cd8bedd3bbed7a27b087901dfa89",
+  "version": "2330897100320734052",
+  "role": "owner",
+  "editorType": "figma",
+  "linkAccess": "inherit",
+  "nodes": {
+    "4:16": {
+      "document": {
+        "id": "4:16",
+        "name": "Vector 1",
+        "type": "VECTOR",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [],
+        "strokes": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1.0,
+              "g": 0.22740760445594788,
+              "b": 0.7038396000862122,
+              "a": 1.0
+            }
+          }
+        ],
+        "strokeWeight": 3.0,
+        "strokeAlign": "CENTER",
+        "absoluteBoundingBox": {
+          "x": -724.0,
+          "y": 778.0,
+          "width": 0.0,
+          "height": 35.0
+        },
+        "absoluteRenderBounds": {
+          "x": -725.5,
+          "y": 778.0,
+          "width": 3.0,
+          "height": 35.0
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": [],
+        "complexStrokeProperties": {
+          "strokeType": "BASIC"
+        }
+      },
+      "components": {},
+      "componentSets": {},
+      "schemaVersion": 0,
+      "styles": {}
+    }
+  }
+}
