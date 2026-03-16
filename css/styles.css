@@ -1,357 +1,40 @@
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-            background: #6aafa4;
-            color: #3a3a3a;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        /* Dark mode theme */
-        body.dark-mode {
-            background: #1a1a1a;
-            color: #e0e0e0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: rgb(164 236 225 / 70%);
-            padding: 20px;
-            border-radius: 24px;
-            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s;
-        }
-
-        /* Dark mode container */
-        body.dark-mode .container {
-            background: #2d2d2d;
-            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.5);
-        }
-		footer.container {
-		    background-color: transparent;
-		    text-align: center;
-		    color: #dcdcdc;
-		    box-shadow: none;
-		    padding: 0 0 5em 0;
-		}
-		footer p{
-			text-transform:uppercase;
-			letter-spacing:2px;
-			font-size: .9em;
-		}
-
-        /* Dark mode footer */
-        body.dark-mode footer.container {
-            color: #999;
-            background: none;
-            box-shadow: none;
-        }
-        .input-group { margin-top: 5px; margin-bottom: 20px; }
-        label { display: block; font-weight: bold; margin-bottom: 5px; }
-		.input-group label {
-			font-size: 1.5em;
-			letter-spacing: .5px;
-		}
-
-        /* Dark mode labels */
-        body.dark-mode label {
-            color: #e0e0e0;
-        }
-        textarea {
-            width: 100%;
-            height: 120px;
-            padding: 8px;
-            border: none;
-            border-radius: 6px;
-            box-sizing: border-box;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        /* Dark mode textarea */
-        body.dark-mode textarea {
-            background: #3d3d3d;
-            color: #e0e0e0;
-            border: 1px solid #555;
-        }
-
-        .btn-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 50px;
-        }
-
-        button {
-            background: rgb(247 149 124);
-            color: white;
-            border: none;
-            padding: 16px 24px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 22px;
-            width: 100%;
-            font-weight: bold;
-            letter-spacing: .5px;
-            transition: transform 0.1s, background 0.3s;
-        }
-        button:hover { background: #ee947d; }
-        button:active { transform: scale(0.98); }
-
-        /* Dark mode buttons */
-        body.dark-mode button {
-            background: #0066cc;
-        }
-        body.dark-mode button:hover {
-            background: #0052a3;
-        }
-
-        /* Secondary style for copy button */
-        #copyBtn {
-            background: #f7957c;
-            display: none; /* Hidden until a prompt is generated */
-			width: 40%;
-        }
-        #copyBtn:hover { background: #ee947d; }
-
-        #output {
-            margin-top: 20px;
-            padding: 30px;
-            border-left: navajowhite;
-            background: #f8fafc;
-            line-height: 1.6;
-            font-size: 1.25em;
-            border-radius: 0 0 10px 10px;
-            text-align: center;
-            position: relative;
-            transition: background 0.3s, color 0.3s;
-        }
-		#output span {
-		    color: black;
-		}
-        #output strong {
-            color: hsl(12 76% 64% / 1);
-        }
-
-        /* Dark mode output */
-        body.dark-mode #output {
-            background: #3d3d3d;
-        }
-        body.dark-mode #output span {
-            color: #e0e0e0;
-        }
-        body.dark-mode #output strong {
-            color: #66ccff;
-        }
-        .input-group textarea {
-			color: grey;
-			font-size: 1.5em;
-		}
-        h3 {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #4e5e5c;
-            margin-bottom: 0;
-        }
-        
-        /* Dark mode heading */
-        body.dark-mode h3 {
-            color: #a0b0ae;
-        }
-
-        .masthead h1 {
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size: 3em;
-        }
-
-        /* Dark mode masthead */
-        body.dark-mode .masthead h1 {
-            color: #e0e0e0;
-        }
-        
-        body.dark-mode .masthead p {
-            color: #b0b0b0;
-        }
-
-        /* Masthead with toggle */
-        .masthead-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        /* Theme Toggle Switch */
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-        }
-
-        .switch-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .theme-switch {
-            display: none;
-        }
-
-        .slider {
-            width: 60px;
-            height: 32px;
-            background: #a2a2a2;
-            border-radius: 32px;
-            position: relative;
-            transition: background 0.3s;
-            display: inline-block;
-        }
-
-        .slider::after {
-            content: '';
-            position: absolute;
-            width: 28px;
-            height: 28px;
-            background: white;
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
-            transition: left 0.3s;
-        }
-
-        .theme-switch:checked + .slider {
-            background: #333;
-        }
-
-        .theme-switch:checked + .slider::after {
-            left: 30px;
-        }
-
-        .theme-label {
-            font-size: 0.9em;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .light-label {
-            display: inline;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .dark-label {
-            display: none;
-        }
-
-        .theme-switch:checked ~ .light-label {
-            display: none;
-        }
-
-        .theme-switch:checked ~ .dark-label {
-            display: inline;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Toast notification style */
-        #copyStatus {
-            display: none;
-            text-align: center;
-            color: #ffffff;
-            font-weight: bold;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-/* Media Queries */
-
-/* Mobile devices (max-width: 768px) */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-    .container {
-        padding: 15px;
-        max-width: 100%;
-    }
-    .masthead-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .masthead-header h1 {
-        margin-bottom: 15px;
-    }
-    .theme-toggle {
-        width: 100%;
-    }
-    .input-group label {
-        font-size: 1.2em;
-    }
-    textarea {
-        height: 100px;
-    }
-	.input-group textarea {
- 
-	    font-size: 1.75em;
-	}
-    button {
-        font-size: 18px;
-        padding: 12px 20px;
-    }
-    #output {
-        padding: 20px;
-        font-size: 1em;
-    }
-	div#output {
-	    font-size: 2.5em;
-	}
-    .btn-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    #copyBtn {
-        width: 100%;
-    }
+/* Simplified UI styles matching the provided redesign */
+:root{
+  --magenta:#ff2aa6;
+  --magenta-50:rgba(255,42,166,0.06);
+  --muted:#6b6b6b;
+  --max-width:420px;
 }
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#111;background:#fff}
+.app{max-width:var(--max-width);margin:0 auto;padding:24px}
+.hero{padding:28px 12px 18px;border-radius:10px}
+.prompt{font-weight:800;font-size: 35px;line-height: 1.25;color:#111;margin-bottom:12px}
+.prompt .mark{color:var(--magenta)}
+.hero-actions{display:flex;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:12px 16px;cursor:pointer;border:2px solid transparent;font-weight:700}
+.btn.primary{background:var(--magenta);color:#fff;border-color:var(--magenta);font-size:14px}
+.btn.primary:hover{opacity:0.95}
+.btn.icon{background:transparent;border:2px solid var(--magenta);color:var(--magenta);width:48px;height:48px;padding:8px}
+.panel{margin-top:18px;background:#f7f7f7;padding:18px;border-radius:10px}
+.panel-title{font-size:14px;margin:0 0 12px 0;font-weight:800}
+.customize{display:grid;grid-template-columns:1fr;gap:10px}
+.field{display:flex;flex-direction:column;gap:8px}
+.label-title{font-size:12px;color:var(--muted);font-weight:700}
+.field input{padding:12px;border-radius:8px;border:3px solid var(--magenta-50);background:#fff;font-size:16px}
+.field input::placeholder{color:#bbb}
+.show-and-tell{margin-top:18px;background:#2b2b2b;color:#fff;padding:14px;border-radius:8px}
+.show-and-tell h3{margin:0 0 8px 0}
+.show-and-tell p{margin:0 0 12px 0;color:#ddd}
+.btn.outline{background:transparent;border:2px solid #fff;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700}
+.about{margin-top:16px;color:#444;font-size:13px}
+.site-footer{margin-top:18px;text-align:center;color:#666;font-size:13px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:28px;background:#111;color:#fff;padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .18s}
+.toast.visible{opacity:1}
 
-/* Tablet devices (min-width: 769px) and (max-width: 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        max-width: 90%;
-    }
-    .input-group label {
-        font-size: 2em;
-    }
-    button {
-        font-size: 3em;
-    }
-}
-
-/* Desktop devices (min-width: 1025px) */
-@media (min-width: 1025px) {
-    .container {
-        max-width: 1000px;
-    }
-}
-
-p {}
-
-.masthead {
-    margin-top: 30px;
-}
-
-.masthead p {
-    font-size: 1.25em;
-    letter-spacing: .5px;
-    margin-top: .25em;
-}
-
-div#output {
-    font-size: 1.5em;
-}
-
-div#output {
-    color: lightgray;
+/* Responsive tweaks */
+@media (max-width:420px){
+  .prompt{font-size:28px}
+  .app{padding:18px}
 }
 

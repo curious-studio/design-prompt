@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Brand Prompt Generator</title>
-    <style>
-    </style>
+    <title>Prompter</title>
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 
 </head>
@@ -12,160 +10,59 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3VNR2NXG6"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);} 
     gtag('js', new Date());
-
     gtag('config', 'G-Z3VNR2NXG6');
     </script>
+
 <body>
+<div class="app">
+    <header class="hero">
+        <div id="promptOutput" class="prompt">Design a brand for a <span class="mark">food truck</span> in the <span class="mark">Southwest</span> whose clients are <span class="mark">large families</span>. It should feel <span class="mark">optimistic, stylish, and kind</span>, and use <span class="mark">magenta</span> as a key color.</div>
 
-<div class="container">
-	<img src="./images/graphic-design-SP26.png" width=100% style="border-radius: 10px;">
-<!--    <h3 class="heading">ARTD 339 - Spring 2026</h3> -->
-    <div class="masthead">
-        <div class="masthead-header">
-            <h1>Brand Prompt Generator</h1>
-            <div class="theme-toggle">
-                <label for="theme-switch" class="switch-label">
-                    <input id="theme-switch" type="checkbox" class="theme-switch">
-                    <span class="slider"></span>
-                    <span class="theme-label light-label">Light</span>
-                    <span class="theme-label dark-label">Dark</span>
-                </label>
-            </div>
+        <div class="hero-actions">
+            <button id="newPrompt" class="btn primary">NEW PROMPT</button>
+            <button id="copyBtn" class="btn icon" aria-label="Copy"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="10" height="10" stroke="currentColor" stroke-width="1.5" rx="2"/><rect x="4" y="4" width="10" height="10" stroke="currentColor" stroke-width="1.5" rx="2"/></svg></button>
         </div>
-        <p>Use the options provided for each category, or customize them to fit your project.</p>
-    </div>
-    
-    <div class="input-group">
-        <label>Clients</label>
-        <textarea id="clients">small airline, coffee shop, dentist, school, noodle restaurant, food truck, fin-tech startup, handyman service, dog groomer, pizza shop, tree trimmer, home remodeler, crossfit gym, summer camp, bakery, grocery store, donut shop, recording studio, deli, pool hall, dance studio, lawncare service, garden center, taco shop, small hotel, hockey gear store, music store</textarea>
-    </div>
+    </header>
 
-    <div class="input-group">
-        <label>Locations</label>
-        <textarea id="locations">a small town, Denver, a large city, an east coast city, a college town, a national park, New England, the Mid-Atlantic, the Southeast, the Deep South, the Midwest, the Great Plains, the Southwest, the Rocky Mountains, the Pacific Northwest, a West Coast community, the Great Lakes Region, Appalachia, the Gulf Coast</textarea>
-    </div>
+    <main class="panel">
+        <h2 class="panel-title">Customize your prompt</h2>
 
-    <div class="input-group">
-        <label>Demographics</label>
-        <textarea id="demographics">elementary kids, large families, urban residents, rural populations, suburban households, senior citizens living independently, retirees, first-time homebuyers, working professionals, small business owners, stay-at-home parents, single-parent families, dual-income households, recent immigrants, military veterans, Gen Z consumers, millennials, baby boomers, seasonal residents, middle-class families, renters, teenagers, young professionals, empty nesters, urban commuters, homeowners, college graduates, single adults, parents of young children</textarea>
-    </div>
+        <form class="customize" id="customizeForm" onsubmit="return false;">
+            <label class="field"><span class="label-title">Project Type</span><input id="projectType" placeholder="brand"></label>
+            <label class="field"><span class="label-title">Client</span><input id="client" placeholder="food truck"></label>
+            <label class="field"><span class="label-title">Location</span><input id="location" placeholder="in the Southwest"></label>
+            <label class="field"><span class="label-title">Audience</span><input id="audience" placeholder="large families"></label>
+            <label class="field"><span class="label-title">Tone</span><input id="tone" placeholder="optimistic, stylish, kind"></label>
+            <label class="field"><span class="label-title">Key Color</span><input id="keyColor" placeholder="magenta"></label>
+        </form>
 
-    <div class="input-group">
-        <label>Descriptors</label>
-        <textarea id="descriptors">adventurous, analytical, artisanal, athletic, audacious, authentic, beautiful, bold, brave, bright, careful, caring, childlike, clean, clever, competent, confident, delicate, dignified, dynamic, electrifying, elegant, elevated, embellished, encouraging, energetic, fast, fearless, ferocious, focused, fresh, friendly, futuristic, gourmet, gracious, handcrafted, healthy, helpful, heritage, heroic, hospitable, imaginative, in motion, intelligent, inventive, joyful, kind, logical, luxurious, majestic, merry, mesmerizing, mysterious, mystical, natural, noble, nostalgic, nourishing, optimistic, organic, personal, pioneering, playful, posh, powerful, practical, pragmatic, precise, prestigious, prudent, pure, quiet, quirky, radiant, refined, refreshing, relaxed, robust, rough, rugged, sacred, safe, secret, serene, simple, sincere, slow, solid, sophisticated, stable, status, sturdy, stylish, sweet, theoretical, thoughtful, thrilling, tranquil, trustworthy, unexpected, vigorous, warm, welcoming, wholesome, wild, wise, witty</textarea>
-    </div>
+        <section class="show-and-tell">
+            <h3>Show and Tell</h3>
+            <p>We'd love to see what you make! Share your work and the prompt you used, and we'll feature it in our gallery.</p>
+            <button class="btn outline">Share your work</button>
+        </section>
 
-    <div class="input-group">
-        <label>Colors</label>
-        <textarea id="colors">Crimson, Tangerine, Lemon Yellow, Chartreuse, Emerald Green, Teal, Turquoise, Sky Blue, Cobalt Blue, Indigo, Violet, Magenta, Coral, Peach, Maroon, Olive, Mustard, Chocolate Brown, Charcoal Gray, Ivory, Sun-Faded Terracotta, Deep Pine Green, Pale Champagne Beige, Stormcloud Gray, Ripe Pomegranate Red, Icy Glacier Blue, Toasted Almond Brown, Dusty Rose, Electric Cobalt, Burnished Copper, Soft Pistachio Green, Midnight Plum, Honeyed Amber, Arctic Mint, Smoky Quartz Taupe, Tropical Lagoon Teal, Saffron Gold, Blueberry Ink, Coral Reef Pink, Weathered Denim Blue</textarea>
-    </div>
+        <section class="about">
+            <h4>About this tool</h4>
+            <p>This design prompt generator is intended to kick start the ideation process or help you get unstuck. Created for designers, creative teams, and design educators, we hope it unlocks new and surprising avenues in your creative work.</p>
+        </section>
+    </main>
 
-    <div class="btn-container">
-        <button id="generate">Generate Prompt</button>
-        <button id="copyBtn">Copy Prompt</button>
-    </div>
+    <footer class="site-footer">Created by Tim Murray, Fall 2026</footer>
 
-    <div id="output">What will you make today?</div>
-    <div id="copyStatus">Copied to clipboard!</div>
+    <!-- Hidden data sources (preserved for randomization) -->
+    <textarea id="clients" hidden>small airline, coffee shop, dentist, school, noodle restaurant, food truck, fin-tech startup, handyman service, dog groomer, pizza shop, tree trimmer, home remodeler, crossfit gym, summer camp, bakery, grocery store, donut shop, recording studio, deli, pool hall, dance studio, lawncare service, garden center, taco shop, small hotel, hockey gear store, music store</textarea>
+    <textarea id="locations" hidden>a small town, Denver, a large city, an east coast city, a college town, a national park, New England, the Mid-Atlantic, the Southeast, the Deep South, the Midwest, the Great Plains, the Southwest, the Rocky Mountains, the Pacific Northwest, a West Coast community, the Great Lakes Region, Appalachia, the Gulf Coast</textarea>
+    <textarea id="demographics" hidden>elementary kids, large families, urban residents, rural populations, suburban households, senior citizens living independently, retirees, first-time homebuyers, working professionals, small business owners, stay-at-home parents, single-parent families, dual-income households, recent immigrants, military veterans, Gen Z consumers, millennials, baby boomers, seasonal residents, middle-class families, renters, teenagers, young professionals, empty nesters, urban commuters, homeowners, college graduates, single adults, parents of young children</textarea>
+    <textarea id="descriptors" hidden>adventurous, analytical, artisanal, athletic, audacious, authentic, beautiful, bold, brave, bright, careful, caring, childlike, clean, clever, competent, confident, delicate, dignified, dynamic, electrifying, elegant, elevated, embellished, encouraging, energetic, fast, fearless, ferocious, focused, fresh, friendly, futuristic, gourmet, gracious, handcrafted, healthy, helpful, heritage, heroic, hospitable, imaginative, in motion, intelligent, inventive, joyful, kind, logical, luxurious, majestic, merry, mesmerizing, mysterious, mystical, natural, noble, nostalgic, nourishing, optimistic, organic, personal, pioneering, playful, posh, powerful, practical, pragmatic, precise, prestigious, prudent, pure, quiet, quirky, radiant, refined, refreshing, relaxed, robust, rough, rugged, sacred, safe, secret, serene, simple, sincere, slow, solid, sophisticated, stable, status, sturdy, stylish, sweet, theoretical, thoughtful, thrilling, tranquil, trustworthy, unexpected, vigorous, warm, welcoming, wholesome, wild, wise, witty</textarea>
+    <textarea id="colors" hidden>Crimson, Tangerine, Lemon Yellow, Chartreuse, Emerald Green, Teal, Turquoise, Sky Blue, Cobalt Blue, Indigo, Violet, Magenta, Coral, Peach, Maroon, Olive, Mustard, Chocolate Brown, Charcoal Gray, Ivory, Sun-Faded Terracotta, Deep Pine Green, Pale Champagne Beige, Stormcloud Gray, Ripe Pomegranate Red, Icy Glacier Blue, Toasted Almond Brown, Dusty Rose, Electric Cobalt, Burnished Copper, Soft Pistachio Green, Midnight Plum, Honeyed Amber, Arctic Mint, Smoky Quartz Taupe, Tropical Lagoon Teal, Saffron Gold, Blueberry Ink, Coral Reef Pink, Weathered Denim Blue</textarea>
+
 </div>
 
-<script>
-// Theme toggle functionality
-(function() {
-    const themeSwitch = document.getElementById('theme-switch');
-    const htmlElement = document.documentElement;
+<div id="copyToast" class="toast" aria-hidden="true">Copied to clipboard</div>
 
-    // Load theme preference from localStorage
-    const savedTheme = localStorage.getItem('theme-preference') || 'light';
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeSwitch.checked = true;
-    }
-
-    // Toggle theme on switch change
-    themeSwitch.addEventListener('change', function() {
-        if (this.checked) {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('theme-preference', 'dark');
-        } else {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('theme-preference', 'light');
-        }
-    });
-})();
-</script>
-
-<script>
-(function() {
-    const genBtn = document.getElementById('generate');
-    const copyBtn = document.getElementById('copyBtn');
-    const output = document.getElementById('output');
-    const copyStatus = document.getElementById('copyStatus');
-
-    // Helper to get random item from comma-separated or newline-separated text
-    function pickRandom(id) {
-        const text = document.getElementById(id).value;
-        const items = text.split(/[,\n]/)
-                          .map(s => s.trim())
-                          .filter(s => s.length > 0 && !s.includes('[source'));
-        return items[Math.floor(Math.random() * items.length)];
-    }
-
-    // Generate Prompt function
-    genBtn.addEventListener('click', function() {
-        try {
-            const biz = pickRandom('clients');
-            const loc = pickRandom('locations');
-            const demo = pickRandom('demographics');
-            const color = pickRandom('colors');
-            
-            const descInput = document.getElementById('descriptors').value;
-            const descPool = descInput.split(/[,\n]/).map(s => s.trim()).filter(s => s.length > 0);
-            const selectedDesc = [];
-            
-            while(selectedDesc.length < 3 && descPool.length > 3) {
-                const pick = descPool[Math.floor(Math.random() * descPool.length)];
-                if(!selectedDesc.includes(pick)) {
-                    selectedDesc.push(pick);
-                }
-            }
-
-            const prompt = "<span>Design a brand for a <strong>" + biz + "</strong> in <strong>" + loc + "</strong> whose clients are <strong>" + demo + "</strong>. The brand should feel <strong>" + selectedDesc[0] + "</strong>, <strong>" + selectedDesc[1] + "</strong> and <strong>" + selectedDesc[2] + "</strong>, and should use <strong>" + color + "</strong> as one of its key colors.</span>";
-            
-            output.innerHTML = prompt;
-            
-            // Show the copy button once a prompt exists
-            copyBtn.style.display = "block";
-            copyStatus.style.display = "none"; 
-        } catch (err) {
-            output.innerHTML = "Error generating prompt. Please check your list formatting.";
-            console.error(err);
-        }
-    });
-
-    // Standalone Copy function
-    copyBtn.addEventListener('click', function() {
-        const textToCopy = output.innerText; // .innerText strips the <strong> tags
-        
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            // Show feedback
-            copyStatus.style.display = "block";
-            
-            // Hide feedback after 2 seconds
-            setTimeout(() => {
-                copyStatus.style.display = "none";
-            }, 2000);
-        }).catch(err => {
-            console.error('Could not copy text: ', err);
-        });
-    });
-
-})();
-</script>
-<footer class="container">
-    <p>Created by Tim Murray, Fall 2026</p>
-</footer>
+<script src="./js/app.js"></script>
 </body>
 </html>
