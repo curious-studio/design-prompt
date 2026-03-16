@@ -1,4 +1,4 @@
-// Main app JS - moved from inline scripts
+// Main app JS
 (function(){
     // Helper: return random item from comma/newline separated source string
     function pickRandomFromText(text) {
@@ -32,13 +32,14 @@
         const keyColor = (document.getElementById('keyColor').value || '').trim();
 
         // fallback to hidden lists when fields are empty
+        const projectTypeText = document.getElementById('projectTypes').value || '';
         const clientsText = document.getElementById('clients').value || '';
         const locationsText = document.getElementById('locations').value || '';
         const demosText = document.getElementById('demographics').value || '';
         const descriptorsText = document.getElementById('descriptors').value || '';
         const colorsText = document.getElementById('colors').value || '';
 
-        const useProject = projectType || 'brand';
+        const useProject = projectType || pickRandomFromText(projectTypeText);
         const useClient = client || pickRandomFromText(clientsText);
         const useLocation = location || pickRandomFromText(locationsText);
         const useAudience = audience || pickRandomFromText(demosText);
@@ -80,6 +81,7 @@
     });
 
     copyBtn.addEventListener('click', function(){
+// this is a bug--the builPrompt function is being called twice, which can lead to different outputs if the fields are empty. To fix, we should store the last generated prompt and copy that instead of generating a new one on copy.
         const p = buildPrompt();
         navigator.clipboard.writeText(p.text).then(()=>{
             showToast('Copied to clipboard');
