@@ -57,8 +57,8 @@
 
         const toneStr = selectedTones.join(', ');
 
-        const html = `Design a ${useProject} for a <span class="mark">${escapeHtml(useClient)}</span> in the <span class="mark">${escapeHtml(useLocation)}</span> whose clients are <span class="mark">${escapeHtml(useAudience)}</span>. It should feel <span class="mark">${escapeHtml(toneStr)}</span>, and use <span class="mark">${escapeHtml(useColor)}</span> as a key color.`;
-        return {html, text: `Design a ${useProject} for a ${useClient} in the ${useLocation} whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor} as a key color.`};
+        const html = `Design <span class="mark">${escapeHtml(useProject)}</span> for a <span class="mark">${escapeHtml(useClient)}</span> in <span class="mark">${escapeHtml(useLocation)}</span> whose clients are <span class="mark">${escapeHtml(useAudience)}</span>. It should feel <span class="mark">${escapeHtml(toneStr)}</span>, and use <span class="mark">${escapeHtml(useColor)}</span> as a key color.`;
+        return {html, text: `Design ${useProject} for a ${useClient} in ${useLocation} whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor} as a key color.`};
     }
 
     function escapeHtml(s){
