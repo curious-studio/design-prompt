@@ -20,9 +20,12 @@
 
     const newPromptBtn = document.getElementById('newPrompt');
     const copyBtn = document.getElementById('copyBtn');
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeToggleText = document.querySelector('.theme-toggle-text');
     const promptOutput = document.getElementById('promptOutput');
     const toast = document.getElementById('copyToast');
     const customizeForm = document.getElementById('customizeForm');
+    const themeStorageKey = 'prompterTheme';
     let lastPromptText = '';
 
     function buildPrompt() {
@@ -107,6 +110,31 @@
         }
     }
 
+    function applyTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        if (!themeToggleBtn) return;
+        themeToggleBtn.checked = theme === 'dark';
+        themeToggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        if (themeToggleText) {
+            themeToggleText.textContent = theme === 'dark' ? 'light mode' : 'dark mode';
+        }
+    }
+
+    function getInitialTheme() {
+        const saved = localStorage.getItem(themeStorageKey);
+        if(saved === 'dark' || saved === 'light') return saved;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function setTheme(theme) {
+        applyTheme(theme);
+        localStorage.setItem(themeStorageKey, theme);
+    }
+
+    themeToggleBtn?.addEventListener('change', function(){
+        setTheme(themeToggleBtn.checked ? 'dark' : 'light');
+    });
+
     newPromptBtn.addEventListener('click', function(){
         const p = buildPrompt();
         promptOutput.innerHTML = p.html;
@@ -132,7 +160,8 @@
         });
     });
 
-    // Initialize with a generated prompt
+    // Initialize theme and prompt
+    setTheme(getInitialTheme());
     newPromptBtn.click();
 
 })();
