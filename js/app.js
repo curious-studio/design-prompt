@@ -22,6 +22,8 @@
     const copyBtn = document.getElementById('copyBtn');
     const promptOutput = document.getElementById('promptOutput');
     const toast = document.getElementById('copyToast');
+    const customizeForm = document.getElementById('customizeForm');
+    let lastPromptText = '';
 
     function buildPrompt() {
         const projectType = (document.getElementById('projectType').value || '').trim();
@@ -58,8 +60,28 @@
 
         const toneStr = selectedTones.join(', ');
 
-        const html = `Design <span class="mark">${escapeHtml(useProject)}</span> for a <span class="mark">${escapeHtml(useClient)}</span> in <span class="mark">${escapeHtml(useLocation)}</span> whose clients are <span class="mark">${escapeHtml(useAudience)}</span>. It should feel <span class="mark">${escapeHtml(toneStr)}</span>, and use <span class="mark">${escapeHtml(useColor)}</span> as a key color.`;
-        return {html, text: `Design ${useProject} for a ${useClient} in ${useLocation} whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor} as a key color.`};
+        const html = `Design <span class="mark">${escapeHtml(useProject)}</span> for a <span class="mark">${escapeHtml(useClient)}</span>. <span class="prompt-secondary avoid-orphans">The client serves <span class="mark">${escapeHtml(useAudience)}</span> in <span class="mark">${escapeHtml(useLocation)}</span>, wants the design to feel <span class="mark">${escapeHtml(toneStr)}</span>, and to use <span class="mark">${escapeHtml(useColor)}</span> as a key color.</span>`;
+        return {
+            html,
+            text: `Design ${useProject} for a ${useClient} in ${useLocation} whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor} as a key color.`,
+            values: {
+                projectType: useProject,
+                client: useClient,
+                location: useLocation,
+                audience: useAudience,
+                tone: toneStr,
+                keyColor: useColor
+            }
+        };
+    }
+
+    function updatePlaceholders(values) {
+        document.getElementById('projectType').placeholder = values.projectType;
+        document.getElementById('client').placeholder = values.client;
+        document.getElementById('location').placeholder = values.location;
+        document.getElementById('audience').placeholder = values.audience;
+        document.getElementById('tone').placeholder = values.tone;
+        document.getElementById('keyColor').placeholder = values.keyColor;
     }
 
     function escapeHtml(s){
@@ -75,16 +97,36 @@
         setTimeout(()=>toast.classList.remove('visible'), 1800);
     }
 
+    function setCopyButtonState(active) {
+        if(active) {
+            copyBtn.classList.remove('copied');
+            copyBtn.disabled = false;
+        } else {
+            copyBtn.classList.add('copied');
+            copyBtn.disabled = true;
+        }
+    }
+
     newPromptBtn.addEventListener('click', function(){
         const p = buildPrompt();
         promptOutput.innerHTML = p.html;
+        updatePlaceholders(p.values);
+        lastPromptText = p.text;
+        setCopyButtonState(true);
+    });
+
+    customizeForm.addEventListener('keydown', function(event){
+        if(event.key === 'Enter'){
+            event.preventDefault();
+            newPromptBtn.click();
+        }
     });
 
     copyBtn.addEventListener('click', function(){
-// this is a bug--the builPrompt function is being called twice, which can lead to different outputs if the fields are empty. To fix, we should store the last generated prompt and copy that instead of generating a new one on copy.
-        const p = buildPrompt();
-        navigator.clipboard.writeText(p.text).then(()=>{
+        const textToCopy = lastPromptText || promptOutput.textContent || '';
+        navigator.clipboard.writeText(textToCopy).then(()=>{
             showToast('Copied to clipboard');
+            setCopyButtonState(false);
         }).catch(()=>{
             showToast('Copy failed');
         });
