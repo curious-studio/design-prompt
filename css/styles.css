@@ -51,22 +51,22 @@
 html,body{height:100%;margin:0;font-size:18px;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--text);background:var(--bg);transition:background .3s ease,color .3s ease;}
 .app{max-width:var(--max-width);margin:0 auto;padding:24px;display: grid;grid-template-columns: 1fr 1fr;gap: 4rem;align-items: start;}
 .hero{padding:28px 12px 18px;border-radius:10px;background:var(--hero-bg);transition:background .3s ease;}
-.prompt{font-weight:800;font-size: clamp(2.5rem, 6vw, 3.5rem);line-height: 1.15;color:var(--text);margin-bottom:12px;min-height: 300px;}
+.prompt{font-weight:800;font-size: clamp(2rem, 6vw, 3.5rem);line-height: 1.15;color:var(--text);margin-bottom:12px;min-height: 300px;}
 .prompt .mark{color:var(--key-color)}
 .prompt-secondary{display:block;font-size: clamp(1.25rem, 3vw, 1.75rem);line-height:1.6;margin-top:0.55rem;color:var(--text);font-weight: 300;}
 .hero-actions{display:flex;gap:12px;align-items:center}
 .theme-toggle{display:flex;align-items:center;gap:0.75rem;margin-top:1rem}
 .theme-toggle-input{position:absolute;opacity:0;width:1px;height:1px;overflow:hidden;}
-.theme-toggle-label{display:inline-flex;align-items:center;width:54px;height:30px;border-radius:999px;background:var(--field-border);border:2px solid var(--field-border);cursor:pointer;transition:background .2s ease,border-color .2s ease;position:relative}
+.theme-toggle-label{display:inline-flex;align-items:center;width:54px;height:30px;border-radius:999px;background: var(--muted);border: 2px solid var(--muted);cursor:pointer;transition: background .5s ease,border-color .5s ease;position:relative}
 /*.theme-toggle-label::before{content:'☀️';position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:0.85rem;transition:opacity .2s ease;}
 .theme-toggle-label::after{content:'🌙';position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:0.85rem;opacity:0;transition:opacity .2s ease;}
 */
-.theme-toggle-knob{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--bg);transition:transform .2s ease,background .2s ease;}
+.theme-toggle-knob{position:absolute;top: 1px;left: 1px;width:24px;height:24px;border-radius:50%;background:var(--bg);transition: transform .7s ease,background .7s ease;}
 .theme-toggle-input:checked + .theme-toggle-label{background:var(--key-color);border-color:var(--key-color)}
 .theme-toggle-input:checked + .theme-toggle-label::before{opacity:0}
 .theme-toggle-input:checked + .theme-toggle-label::after{opacity:1}
 .theme-toggle-input:checked + .theme-toggle-label .theme-toggle-knob{transform:translateX(24px)}
-.theme-toggle-text{font-size:0.95rem;color:var(--text);text-transform:capitalize;font-weight:700;}
+.theme-toggle-text{font-size: var(--font-size-sm);color: var(--muted);text-transform:capitalize;font-weight:700;}
 .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:12px 16px;cursor:pointer;border:2px solid transparent;font-weight:700;text-transform: uppercase;letter-spacing: 2px;padding-right: 2rem;padding-left: 2rem;transition:background .2s ease,color .2s ease,border-color .2s ease;}
 .btn:focus{outline:2px solid var(--key-color);outline-offset:2px}
 .btn.primary{background:var(--key-color);color:var(--btn-text);border-color:var(--key-color);font-size:14px}
@@ -77,10 +77,10 @@ html,body{height:100%;margin:0;font-size:18px;font-family:Inter, system-ui, -app
 .btn.copied:hover{opacity:1}
 .panel{margin-top:18px;background:var(--panel);padding:18px;border-radius:10px;transition:background .3s ease;}
 .site-footer-wrapper{grid-column:1/-1;display:flex;flex-direction:column;gap:2rem;margin-top:2rem;border-top:1px solid var(--border);padding-top:2rem;}
-.panel-title{font-size:14px;margin:0 0 12px 0;font-weight:800}
+.panel-title{font-size: var(--font-size-sm);margin:0 0 12px 0;font-weight:800;text-transform: uppercase;letter-spacing: 1px;}
 .customize{display:flex;flex-direction:column;gap:10px}
 .field{display:flex;flex-direction:column;gap:8px}
-.label-title{font-size:12px;color:var(--muted);font-weight:700}
+.label-title{font-size: var(--font-size-sm);color: var(--muted);font-weight: 700;}
 .field input{padding:12px;border-radius:8px;border:3px solid var(--field-border);background:var(--field-bg);font-size:16px;color:var(--text)}
 .field input::placeholder{color:var(--muted)}
 .show-and-tell{margin-top:18px;background:var(--showtell-bg);color:var(--showtell-text);padding:14px;border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;transition:background .3s ease,color .3s ease;}
