@@ -93,7 +93,7 @@ html,body{height:100%;margin:0;font-size:18px;font-family:Inter, system-ui, -app
 .btn.outline{background:transparent;border:2px solid #fff;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700}
 .about{margin-top:16px;color:var(--muted);font-size:13px}
 .site-footer{text-align:center;color:var(--muted);font-size:13px}
-.toast{display:inline-flex;align-items:center;margin-left:0.75rem;background:var(--toast-bg);color:var(--toast-text);padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .18s,background .3s ease,color .3s ease;white-space:nowrap;font-size:0.95rem;}
+.toast{display:inline-flex;align-items:center;background:var(--toast-bg);color:var(--toast-text);padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,background .3s ease,color .3s ease;white-space:nowrap;font-size:0.95rem;justify-content: center;}
 .toast.visible{opacity:1}
 
 /* Typography */
