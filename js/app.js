@@ -7,6 +7,11 @@
         return items[Math.floor(Math.random() * items.length)];
     }
 
+    function getArticle(value) {
+        const firstChar = String(value || '').trim().charAt(0).toLowerCase();
+        return /^[aeiou]$/.test(firstChar) ? 'an' : 'a';
+    }
+
     function pickNRandomFromText(text, n) {
         const pool = text.split(/[,\n]/).map(s=>s.trim()).filter(Boolean);
         const out = [];
@@ -27,6 +32,7 @@
     const customizeForm = document.getElementById('customizeForm');
     const themeStorageKey = 'prompterTheme';
     let lastPromptText = '';
+    let promptAnimationTimer = null;
 
     function buildPrompt() {
         const projectType = (document.getElementById('projectType').value || '').trim();
@@ -63,10 +69,12 @@
 
         const toneStr = selectedTones.join(', ');
 
-        const html = `Design <span class="mark">${escapeHtml(useProject)}</span> for a <span class="mark">${escapeHtml(useClient)}</span>. <span class="prompt-secondary avoid-orphans">The client serves <span class="mark">${escapeHtml(useAudience)}</span> in <span class="mark">${escapeHtml(useLocation)}</span>, wants the design to feel <span class="mark">${escapeHtml(toneStr)}</span>, and to use <span class="mark">${escapeHtml(useColor)}</span> as a key color.</span>`;
+        const projectArticle = getArticle(useProject);
+        const clientArticle = getArticle(useClient);
+        const html = `Design ${projectArticle} <span class="mark">${escapeHtml(useProject)} </span> for ${clientArticle} <span class="mark">${escapeHtml(useClient)}</span>. <span class="prompt-secondary avoid-orphans">The client serves <span class="mark">${escapeHtml(useAudience)} </span> in <span class="mark">${escapeHtml(useLocation)}</span>, wants the design to feel <span class="mark">${escapeHtml(toneStr)}</span>, and to use <span class="mark">${escapeHtml(useColor)} </span> as a key color.</span>`;
         return {
             html,
-            text: `Design ${useProject} for a ${useClient} in ${useLocation} whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor} as a key color.`,
+            text: `Design ${projectArticle} ${useProject}  for ${clientArticle} ${useClient} in ${useLocation}  whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor}  as a key color.`,
             values: {
                 projectType: useProject,
                 client: useClient,
@@ -110,6 +118,61 @@
         }
     }
 
+    function wrapWordsInSpans(element) {
+        const textNodes = [];
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while (node = walker.nextNode()) {
+            if (node.nodeValue.trim()) {
+                textNodes.push(node);
+            }
+        }
+        textNodes.forEach(textNode => {
+            if (textNode.parentNode) {  // still attached
+                if (textNode.parentElement && textNode.parentElement.classList.contains('mark')) {
+                    textNode.parentElement.classList.add('word');
+                } else {
+                    const words = textNode.nodeValue.split(/\s+/);
+                    const fragment = document.createDocumentFragment();
+                    words.forEach((word, index) => {
+                        if (word) {
+                            const span = document.createElement('span');
+                            span.className = 'word';
+                            span.textContent = word;
+                            fragment.appendChild(span);
+                            if (index < words.length - 1) {
+                                fragment.appendChild(document.createTextNode(' '));
+                            }
+                        }
+                    });
+                    textNode.parentNode.replaceChild(fragment, textNode);
+                }
+            }
+        });
+    }
+
+    function animatePromptText(plainText, fullHtml) {
+        if(promptAnimationTimer) {
+            clearInterval(promptAnimationTimer);
+            promptAnimationTimer = null;
+        }
+
+        promptOutput.innerHTML = fullHtml;
+        wrapWordsInSpans(promptOutput);
+        const words = promptOutput.querySelectorAll('.word');
+        let index = 0;
+
+        promptAnimationTimer = setInterval(() => {
+            if (index < words.length) {
+                words[index].classList.add('visible');
+                index += 1;
+            } else {
+                clearInterval(promptAnimationTimer);
+                promptAnimationTimer = null;
+            }
+        }, 25);
+    }
+
     function applyTheme(theme) {
         document.documentElement.dataset.theme = theme;
         if (!themeToggleBtn) return;
@@ -137,16 +200,17 @@
 
     newPromptBtn.addEventListener('click', function(){
         const p = buildPrompt();
-        promptOutput.innerHTML = p.html;
         updatePlaceholders(p.values);
         lastPromptText = p.text;
         setCopyButtonState(true);
+        animatePromptText(p.text, p.html);
     });
 
     customizeForm.addEventListener('keydown', function(event){
         if(event.key === 'Enter'){
             event.preventDefault();
             newPromptBtn.click();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 
