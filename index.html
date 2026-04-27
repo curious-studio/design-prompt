@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
         <title>Prompter</title>
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
     </head>
@@ -69,16 +70,24 @@
                         <span class="label-title">Key Color</span>
                         <input id="keyColor" placeholder="magenta">
                     </label>
+                    <div class="theme-toggle">
+                        <input id="themeToggle" class="theme-toggle-input" type="checkbox" aria-label="Toggle dark mode">
+                        <label for="themeToggle" class="theme-toggle-label">
+                            <span class="theme-toggle-knob"></span>
+                        </label>
+                        <span class="theme-toggle-text">dark mode</span>
+                    </div>
                 </form>
             </main>
             <footer class="site-footer-wrapper">
-                <section class="show-and-tell">
+<!--                <section class="show-and-tell">
                     <div class="panel-text">
                         <h3>Show and Tell</h3>
                         <p>We'd love to see what you make! Share your work and the prompt you used, and we'll feature it in our gallery.</p>
                     </div>    
                     <button class="btn outline">Share your work</button>
                 </section>
+-->                
                 <section class="about">
                     <h4>About this tool</h4>
                     <p>This design prompt generator is intended to kick start the ideation process or help you get unstuck. Created for designers, creative teams, and design educators, we hope it unlocks new and surprising avenues in your creative work.</p>
@@ -86,7 +95,7 @@
                 <div class="site-footer">Created by Tim Murray, Fall 2026</div>
             </footer>
             <!-- Hidden data sources (preserved for randomization) -->
-            <textarea id="projectTypes" hidden>a brand, an icon set, a business card, a home page, an event invitation, a logo, a hat, a shirt, a coaster</textarea>
+            <textarea id="projectTypes" hidden>brand, icon set, business card, home page, event invitation, logo, hat, shirt, coaster</textarea>
             <textarea id="clients" hidden>small airline, coffee shop, dentist, school, noodle restaurant, food truck, fin-tech startup, handyman service, dog groomer, pizza shop, tree trimmer, home remodeler, crossfit gym, summer camp, bakery, grocery store, donut shop, recording studio, deli, pool hall, dance studio, lawncare service, garden center, taco shop, small hotel, hockey gear store, music store</textarea>
             <textarea id="locations" hidden>a small town, Denver, a large city, an east coast city, a college town, a national park, New England, the Mid-Atlantic, the Southeast, the Deep South, the Midwest, the Great Plains, the Southwest, the Rocky Mountains, the Pacific Northwest, a West Coast community, the Great Lakes Region, Appalachia, the Gulf Coast</textarea>
             <textarea id="demographics" hidden>elementary kids, large families, urban residents, rural populations, suburban households, senior citizens living independently, retirees, first-time homebuyers, working professionals, small business owners, stay-at-home parents, single-parent families, dual-income households, recent immigrants, military veterans, Gen Z consumers, millennials, baby boomers, seasonal residents, middle-class families, renters, teenagers, young professionals, empty nesters, urban commuters, homeowners, college graduates, single adults, parents of young children</textarea>
