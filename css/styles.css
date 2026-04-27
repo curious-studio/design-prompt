@@ -57,7 +57,7 @@ html,body{height:100%;margin:0;font-size:18px;font-family:Inter, system-ui, -app
 .word{opacity:0;transition:opacity .3s ease}
 .word.visible{opacity:1}
 .prompt-secondary{display:block;font-size: clamp(1.25rem, 3vw, 1.75rem);line-height:1.6;margin-top:0.55rem;color:var(--text);font-weight: 300;}
-.hero-actions{display:flex;gap:12px;align-items:center}
+.hero-actions{display: grid;gap:12px;align-items:center;grid-template-columns: 2fr 1fr;}
 .theme-toggle{display:flex;align-items:center;gap:0.75rem;margin-top:1rem}
 .theme-toggle-input{position:absolute;opacity:0;width:1px;height:1px;overflow:hidden;}
 .theme-toggle-label{display:inline-flex;align-items:center;width:54px;height:30px;border-radius:999px;background: var(--muted);border: 2px solid var(--muted);cursor:pointer;transition: background .5s ease,border-color .5s ease;position:relative}
