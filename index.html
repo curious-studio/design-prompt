@@ -70,13 +70,6 @@
                         <span class="label-title">Key Color</span>
                         <input id="keyColor" placeholder="magenta">
                     </label>
-                    <div class="theme-toggle">
-                        <input id="themeToggle" class="theme-toggle-input" type="checkbox" aria-label="Toggle dark mode">
-                        <label for="themeToggle" class="theme-toggle-label">
-                            <span class="theme-toggle-knob"></span>
-                        </label>
-                        <span class="theme-toggle-text">dark mode</span>
-                    </div>
                 </form>
             </main>
             <footer class="site-footer-wrapper">
@@ -92,7 +85,16 @@
                     <h4>About this tool</h4>
                     <p>This design prompt generator is intended to kick start the ideation process or help you get unstuck. Created for designers, creative teams, and design educators, we hope it unlocks new and surprising avenues in your creative work.</p>
                 </section>
+                <section class="colophon">    
                 <div class="site-footer">Created by Tim Murray, Fall 2026</div>
+                    <div class="theme-toggle">
+                        <input id="themeToggle" class="theme-toggle-input" type="checkbox" aria-label="Toggle dark mode">
+                        <label for="themeToggle" class="theme-toggle-label">
+                            <span class="theme-toggle-knob"></span>
+                        </label>
+                        <span class="theme-toggle-text">dark mode</span>
+                    </div>
+                </section>
             </footer>
             <!-- Hidden data sources (preserved for randomization) -->
             <textarea id="projectTypes" hidden>brand, icon set, business card, home page, event invitation, logo, hat, shirt, coaster</textarea>
