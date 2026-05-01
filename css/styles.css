@@ -81,8 +81,9 @@ html,body{height:100%;margin:0;font-size:18px;font-family:Inter, system-ui, -app
 .colophon {display: flex; justify-content: space-between; align-items: center;}
 .panel{background:var(--panel);padding:18px;border-radius:10px;transition:background .3s ease;}
 .site-footer-wrapper{grid-column:1/-1;display:flex;flex-direction:column;gap:2rem;margin-top:2rem;border-top:1px solid var(--border);padding-top:2rem;}
-.panel-title{font-size: var(--font-size-sm);margin: 30px 0 20px 0;font-weight: 400;800;text-transform: uppercase;letter-spacing: 3px;}
+.panel-title{font-size: var(--font-size-xs);margin: 10px 0 20px 0;font-weight: 400;text-transform: uppercase;letter-spacing: 2px;color:var(--muted);}
 .customize{display:flex;flex-direction:column;gap: 24px;margin-bottom: 10px;}
+.eyebrow {text-transform: uppercase;color: var(--muted);font-size:var(--font-size-xs);letter-spacing:2px;}
 .field{display:flex;flex-direction:column;gap:8px;}
 .label-title{font-size: var(--font-size-sm);color: var(--muted);font-weight: 700;}
 .field input{padding:12px;border-radius:8px;border:3px solid var(--field-border);background:var(--field-bg);font-size:16px;color:var(--text)}
