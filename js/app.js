@@ -74,7 +74,7 @@
         const html = `Design ${projectArticle} <span class="mark">${escapeHtml(useProject)} </span> for ${clientArticle} <span class="mark">${escapeHtml(useClient)}</span>. <span class="prompt-secondary avoid-orphans">The client serves <span class="mark">${escapeHtml(useAudience)} </span> in <span class="mark">${escapeHtml(useLocation)}</span>, wants the design to feel <span class="mark">${escapeHtml(toneStr)}</span>, and to use <span class="mark">${escapeHtml(useColor)} </span> as a key color.</span>`;
         return {
             html,
-            text: `Design ${projectArticle} ${useProject}  for ${clientArticle} ${useClient} in ${useLocation}  whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor}  as a key color.`,
+            text: `Design ${projectArticle} ${useProject} for ${clientArticle} ${useClient} in ${useLocation} whose clients are ${useAudience}. It should feel ${toneStr}, and use ${useColor} as a key color.`,
             values: {
                 projectType: useProject,
                 client: useClient,

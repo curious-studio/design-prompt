@@ -4,8 +4,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
         <title>Prompter</title>
+        <meta name="description" content="Generate design prompts to help you get unstuck">
+
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://curious-studio.github.io/design-prompt/" />
+        <meta property="og:title" content="Prompter" />
+        <meta property="og:description" content="Generate design prompts to help you get unstuck" />
+        <meta property="og:image" content="https://curious-studio.github.io/design-prompt/images/design-prompter.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Design a brand for a food truck based in the Southwest." />
+        <meta property="og:site_name" content="Design Prompt" />
     </head>
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3VNR2NXG6"></script>
     <script>
@@ -19,15 +33,16 @@
     <body>
         <div class="app">
             <header class="hero">
+                <p class="eyebrow">Your design prompt</p>
                 <div id="promptOutput" class="prompt avoid-orphans">
                     Design <span class="mark">a brand</span>
                     for a <span class="mark">food truck</span>
                     . 
                     <span class="prompt-secondary avoid-orphans">
-                        Based in <span class="mark">Southwest</span>
-                        whose clients are <span class="mark">large families</span>
-                        . It should feel <span class="mark">optimistic, stylish, and kind</span>
-                        , and use <span class="mark">magenta</span>
+                        based in <span class="mark">the Southwest</span>
+                        whose clients are <span class="mark">large families</span>. 
+                        It should feel <span class="mark">optimistic, stylish, and kind</span>, 
+                        and use <span class="mark">magenta</span>
                         as a key color.
                     </span>
                 </div>
@@ -70,13 +85,6 @@
                         <span class="label-title">Key Color</span>
                         <input id="keyColor" placeholder="magenta">
                     </label>
-                    <div class="theme-toggle">
-                        <input id="themeToggle" class="theme-toggle-input" type="checkbox" aria-label="Toggle dark mode">
-                        <label for="themeToggle" class="theme-toggle-label">
-                            <span class="theme-toggle-knob"></span>
-                        </label>
-                        <span class="theme-toggle-text">dark mode</span>
-                    </div>
                 </form>
             </main>
             <footer class="site-footer-wrapper">
@@ -92,7 +100,16 @@
                     <h4>About this tool</h4>
                     <p>This design prompt generator is intended to kick start the ideation process or help you get unstuck. Created for designers, creative teams, and design educators, we hope it unlocks new and surprising avenues in your creative work.</p>
                 </section>
+                <section class="colophon">    
                 <div class="site-footer">Created by Tim Murray, Fall 2026</div>
+                    <div class="theme-toggle">
+                        <input id="themeToggle" class="theme-toggle-input" type="checkbox" aria-label="Toggle dark mode">
+                        <label for="themeToggle" class="theme-toggle-label">
+                            <span class="theme-toggle-knob"></span>
+                        </label>
+                        <span class="theme-toggle-text">dark mode</span>
+                    </div>
+                </section>
             </footer>
             <!-- Hidden data sources (preserved for randomization) -->
             <textarea id="projectTypes" hidden>brand, icon set, business card, home page, event invitation, logo, hat, shirt, coaster</textarea>
